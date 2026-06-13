@@ -5,32 +5,32 @@ import { customersDescription } from './resources/customers';
 import { storesDescription } from './resources/stores';
 
 export class ApideckEcommerce implements INodeType {
-	description: INodeTypeDescription = {
-		displayName: 'Apideck Ecommerce',
-		name: 'N8nDevApideckEcommerce',
-		icon: { light: 'file:./apideck-ecommerce.png', dark: 'file:./apideck-ecommerce.dark.png' },
-		group: ['input'],
-		version: 1,
-		subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
-		description: 'Ecommerce API documentation.',
-		defaults: { name: 'Apideck Ecommerce' },
-		usableAsTool: true,
-		inputs: [NodeConnectionTypes.Main],
-		outputs: [NodeConnectionTypes.Main],
-		credentials: [
-			{
-				name: 'N8nDevApideckEcommerceApi',
-				required: true,
-			},
-		],
-		requestDefaults: {
-			baseURL: '={{\$credentials.url}}',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		},
-		properties: [
+        description: INodeTypeDescription = {
+                displayName: 'Apideck Ecommerce',
+                name: 'N8nDevApideckEcommerce',
+                icon: { light: 'file:./apideck-ecommerce.png', dark: 'file:./apideck-ecommerce.dark.png' },
+                group: ['input'],
+                version: 1,
+                subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
+                description: 'Ecommerce API documentation.',
+                defaults: { name: 'Apideck Ecommerce' },
+                usableAsTool: true,
+                inputs: [NodeConnectionTypes.Main],
+                outputs: [NodeConnectionTypes.Main],
+                credentials: [
+                        {
+                                name: 'N8nDevApideckEcommerceApi',
+                                required: true,
+                        },
+                ],
+                requestDefaults: {
+                        baseURL: '={{\$credentials.url}}',
+                        headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json',
+                        },
+                },
+                properties: [
 		{
 			"displayName": "Resource",
 			"name": "resource",
@@ -64,6 +64,6 @@ export class ApideckEcommerce implements INodeType {
 		...productsDescription,
 		...customersDescription,
 		...storesDescription
-		],
-	};
+                ],
+        };
 }
